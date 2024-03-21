@@ -1,0 +1,36 @@
+{% comment %}
+timeline.html: Expects input data as a list of ScrapeJob instances.
+{% endcomment %}
+
+{% load tz %}
+<ul class="timeline">
+  {% for entry in data %}
+    <li>
+      <div>
+        <time datetime="{{ entry.created_at }}">{{ entry.created_at|utc  }} (UTC)</time>
+        <p>
+          {% regroup entry.colordataresult_set.all by result_type as color_groups %}
+          {% for group in color_groups %}
+            <div>
+              {{ group.grouper }}
+              {% include "core/common/color_group.html" with group=group %}
+            </div>
+          {% endfor %}
+        </p>
+      </div>
+    </li>
+  {% endfor %}
+  <li>
+    <div>
+      <time datetime="2018-10-09">October 9, 2018</time>
+      <p>description event #1</p>
+    </div>
+  </li>
+  ...
+  <li>
+    <div>
+      <time datetime="2018-10-09">October 9, 2018</time>
+      <p>description event #n</p>
+    </div>
+  </li>
+</ul>

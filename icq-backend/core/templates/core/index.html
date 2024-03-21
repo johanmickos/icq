@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form %}
+<form action="/colors" method="get">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+</form>
+{% endif %}
+{% if colors  %}
+    <ul>
+    {% for color in colors %}
+        <a href="{% url 'similar' hexcolor=color %}"><span style="background-color: {{ color }};">{{ color }}</span></a>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

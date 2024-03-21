@@ -1,0 +1,6 @@
+{% load colors %}
+<div class="color-group">
+  {% for color in group.list %}
+      {% include "core/common/color_square.html" with color=color %}
+  {% endfor %}
+</div>

@@ -1,0 +1,12 @@
+{% if job %}
+  <h1>{{ job.site.url }}</h1>
+    {% regroup job.colordataresult_set.all by result_type as color_groups %}
+    {% for group in color_groups %}
+      <div>
+      {{ group.grouper }}
+      {% for color in group.list  %}
+          <a href="{% url 'similar' hexcolor=color.hex %}"><span class="hovertext" daa-hover="{{ color.result_type }}" style="background-color: {{ color.hex }};">{{ color.hex }}</span></a>
+      {% endfor %}
+      </div>
+    {% endfor %}
+{% endif %}

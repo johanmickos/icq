@@ -1,0 +1,11 @@
+<div>
+  Scraped on {{ job.created_at }}
+  {% regroup job.colordataresult_set.all by result_type as color_groups %}
+  {% for group in color_groups %}
+    <div>
+      {{ group.grouper }}
+      {% include "core/common/color_group.html" with group=group %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

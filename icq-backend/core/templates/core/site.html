@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="title">
+  {% firstof site.name|title site.url "Unnamed" as sitename %}
+  <h1>{{sitename}}</h1>
+  <h2 class="subtitle">{{ site.url }}</h2>
+  {% if user.is_superuser %}
+    <form action="/colors" method="get">
+      {{ form }}
+      <button type="submit">Scrape</button>
+    </form>
+  {% endif %}
+</div>
+
+<section>
+{% include "core/common/timeline.html" with data=site.scrapejob_set.all %}
+</section>
+
+{% endblock %}

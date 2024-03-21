@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Color similar to <span style="background-color: {{ color }};">{{ color }}</span>:</p>
+
+{% if colors  %}
+    {% regroup colors by site as site_list %}
+    {% for group in site_list %}
+        <div class="site-group">
+            <a href="{% url 'site' site_id=group.grouper.id %}">{{ group.grouper.url }}</a>
+            {% include "core/common/color_group.html" with group=group %}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No colors are available.</p>
+{% endif %}
+{% endblock %}

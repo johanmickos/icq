@@ -1,0 +1,81 @@
+body {
+  background-color: #fff9ef;
+}
+
+.title {
+}
+
+.color-group {
+  display: flex;
+  max-width: 100px;
+  flex-direction: column;
+}
+
+.color-square {
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 0;
+}
+
+.site-group {
+  float: left;
+}
+
+.timeline {
+  /* set a variable for the color */
+  --timeline-color: #9bc;
+
+  position: relative;
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* middle line */
+.timeline:before {
+  /* content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  width: 100%;
+  height: 2px;
+  background: var(--timeline-color); */
+}
+
+.timeline li {
+  /* margin: 0 20px;
+  min-width: 200px;
+  align-self: flex-start; */
+}
+
+/*  event in even position are bottom-aligned */
+.timeline li {
+  /* align-self: flex-end; */
+}
+
+.timeline div {
+  /* position: relative;
+  padding: 10px;
+  border: 1px var(--timeline-color) solid; */
+}
+
+/* style for the dot over the timeline */
+.timeline li:before {
+  /* content: "";
+  position: absolute;
+  top: 50%;
+  margin-left: 100px;
+  transform: translate(-50%, -50%);
+  border: 1px #9bc solid;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--timeline-color); */
+}

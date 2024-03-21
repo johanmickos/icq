@@ -1,0 +1,8 @@
+{% load colors %}
+<div
+  draggable=false
+  class="color-square hovertext"
+  data-hover="{{ color.result_type }}"
+  style="color: rgb({{ color.rgb|contrast|join:','}}); background-color: {{ color.hex }}; border-color: rgb({{ color.rgb|lightness:'0.8'|join:',' }});"
+>
+</div>
